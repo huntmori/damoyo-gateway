@@ -5,9 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
-
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,7 +20,7 @@ import { AuthService } from './auth/auth.service';
       inject: [MariaDBConfigService],
     }),
   ],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  controllers: [AppController, UserController],
+  providers: [AppService, UserService],
 })
 export class AppModule {}
