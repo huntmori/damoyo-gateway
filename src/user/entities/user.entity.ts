@@ -1,9 +1,9 @@
-import { BaseEntity, Column, Entity, PrimaryColumn, Unique } from 'typeorm';
+import { LocalDateTime } from '@js-joda/core';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-@Unique(['idx', 'userId', 'uuid', 'email'])
 export class User extends BaseEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   idx: number;
 
   @Column({
@@ -29,4 +29,14 @@ export class User extends BaseEntity {
     nullable: false,
   })
   password: string;
+
+  @Column({
+    type: 'datetime',
+  })
+  createdAt: LocalDateTime;
+
+  @Column({
+    type: 'datetime',
+  })
+  updatedAt: LocalDateTime;
 }
