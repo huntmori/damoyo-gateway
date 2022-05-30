@@ -7,7 +7,7 @@ export class MariaDBConfigService implements TypeOrmOptionsFactory {
   constructor(private configService: ConfigService) {}
 
   createTypeOrmOptions(): TypeOrmModuleOptions {
-    console.log('dirname:', __dirname);
+    // console.log('dirname:', __dirname);
     return {
       type: 'mariadb',
       username: this.configService.get<string>('DB_USERNAME'),
